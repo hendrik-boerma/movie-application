@@ -1,0 +1,132 @@
+header {
+  padding: 2rem;
+  background-color: #1C1C1C;
+  display: flex;
+  justify-content: flex-end;
+}
+
+input {
+  background-color: #262626;
+  color: #EFEFEF;
+  border-radius: 8rem;
+  border: none;
+  padding: 1rem 2rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+h1 {
+  color: #EFEFEF;
+  margin: 0;
+}
+
+p {
+  color: #EFEFEF;
+  margin: 0;
+}
+
+main {
+  padding: 2rem 8rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  border-radius: 2rem  2rem 0rem 0rem;
+  height: 16rem;
+  object-fit: cover;
+}
+
+.card-text {
+  background-color: #1C1C1C;
+  padding: 1rem;
+  height: 100%;
+  border-radius: 0rem 0rem 2rem  2rem;
+  display: grid;
+  grid-template-columns: 20% 20% 30% 20%;
+  grid-template-rows: auto;
+  justify-content: space-between;  
+  gap: 0.5rem;
+  grid-template-areas: 
+    "title title title title"
+    "year year year year"
+    "cardcollapse cardcollapse cardcollapse cardcollapse";
+}
+
+.card-collapse {
+  display: grid;
+  grid-area: cardcollapse;
+  grid-template-columns: 90%;
+  grid-template-rows: auto;
+  justify-content: space-between;  
+  gap: 0.5rem;
+  grid-template-areas:
+    "plot"
+    "director"
+    "actors"
+    "awards";
+}
+
+.card-title {
+  grid-area: title;
+  font-size: 1.5rem;
+}
+
+.card-year {
+  grid-area: year;
+  color: #CCCCCC;
+  font-size: 1rem;
+}
+
+.card-plot {
+  grid-area: plot;
+  color: #EFEFEF;
+  font-size: 1rem;
+}
+
+.card-director {
+  grid-area: director;
+  color: #CCCCCC;
+  font-size: 0.75rem;
+}
+
+.card-actors {
+  grid-area: actors;
+  color: #CCCCCC;
+  font-size: 0.75rem;
+}
+
+.card-awards {
+  grid-area: awards;
+  color: #CCCCCC;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  main {
+    padding: 2rem 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  main {
+    padding: 2rem 2rem;
+  }
+}
