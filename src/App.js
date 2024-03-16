@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Search from './Components/Search';
 import Home from './Components/Home';
-import Fetch from './Fetch';
+import Searchresult from './Components/Searchresult';
 import './App.css';
 
 function App() {
@@ -14,15 +14,13 @@ function App() {
   return (
     <>
       <header>
+        <h1>Thuis.bioscoop</h1>
         <Search movieTitle={movieTitle} handleInputChange={handleInputChange} />
       </header>
       <main>
-        <section className='card-grid'>
+          <Searchresult movieTitle={movieTitle} />
+        <h1>Uitgelicht</h1>
           <Home />
-        </section>
-        <section className='card-grid'>
-          <Fetch movieTitle={movieTitle} />
-        </section>
       </main>
 
     </>

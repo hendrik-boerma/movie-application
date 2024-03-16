@@ -2,7 +2,18 @@ header {
   padding: 2rem;
   background-color: #1C1C1C;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #262626;
+  border-radius: 32rem;
 }
 
 input {
@@ -13,6 +24,23 @@ input {
   padding: 1rem 2rem;
   text-align: left;
   font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+i {
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  padding-right: 1rem;
+}
+
+#search-icon {
+  width: 1.5rem;
 }
 
 h1 {
@@ -27,6 +55,9 @@ p {
 
 main {
   padding: 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .card-grid {
@@ -39,48 +70,50 @@ main {
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
+  background-color: #1C1C1C;
+  padding-bottom: 1rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
   border-radius: 2rem  2rem 0rem 0rem;
   height: 16rem;
+  min-height: 16rem;
   object-fit: cover;
+  background-color: #262626;
 }
 
-.card-text {
+.card-text-search, .card-text-home {
   background-color: #1C1C1C;
   padding: 1rem;
-  height: 100%;
   border-radius: 0rem 0rem 2rem  2rem;
   display: grid;
   grid-template-columns: 20% 20% 30% 20%;
   grid-template-rows: auto;
-  justify-content: space-between;  
+  align-items: flex-start;
   gap: 0.5rem;
+  height: 6rem;
+  overflow: hidden;
   grid-template-areas: 
     "title title title title"
     "year year year year"
-    "cardcollapse cardcollapse cardcollapse cardcollapse";
+    "plot plot plot plot"
+    "director director director director"
+    "actors actors actors actors"
+    "awards awards awards awards"
 }
 
-.card-collapse {
-  display: grid;
-  grid-area: cardcollapse;
-  grid-template-columns: 90%;
-  grid-template-rows: auto;
-  justify-content: space-between;  
-  gap: 0.5rem;
-  grid-template-areas:
-    "plot"
-    "director"
-    "actors"
-    "awards";
+.card-text-home {
+  grid-template-areas: 
+    "title title title title"
+    "year year year year"
+    "plot plot plot plot"
+    "awards awards awards awards"
 }
 
 .card-title {
   grid-area: title;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .card-year {
@@ -92,7 +125,8 @@ main {
 .card-plot {
   grid-area: plot;
   color: #EFEFEF;
-  font-size: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
 .card-director {
@@ -124,9 +158,18 @@ main {
 
 @media (max-width: 768px) {
   .card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   main {
     padding: 2rem 2rem;
   }
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+header {
+  flex-direction: column;
+}
 }
