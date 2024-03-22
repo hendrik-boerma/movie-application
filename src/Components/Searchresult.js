@@ -25,11 +25,11 @@ const Searchresult = ({ movieTitle }) => {
         return;
     }
 
-    if (!movies || movies.length === 0) {
+    if (movies.length === 0) {
         return  (
         <section>
         <h1>Zoekresultaten</h1>
-        <p id='result-warning'>Geen resultaten gevonden voor de zoekterm '{movieTitle}'</p>
+        <p id='result-warning' data-testid="warning">Geen resultaten gevonden voor de zoekterm '{movieTitle}'</p>
         </section>
     );
     }
@@ -49,7 +49,7 @@ const Searchresult = ({ movieTitle }) => {
 const MovieItem = ({ Poster, Title, Year, Plot, Awards, Director, Actors, Rated, Genre, Type, index }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div key={index} className='card'>
+        <div key={index} className='card' data-testid="card">
             <img className='card-image' src={Poster === "N/A" ? logoimage : Poster} alt="Movie Poster" />
             <div style={isOpen ? { height: '100%', paddingBottom: '4rem'  } : null} className='card-text-search'>
                 <h1 className='card-title'>{Title}</h1>

@@ -1,9 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
 
 function Home() {
     const [highlights, setHighlights] = useState([]);
-    const idNumbers = useMemo(() => ['tt0114709', 'tt0109830'], []);
+    const [idNumbers] = useState(['tt0114709', 'tt0109830']);
 
     useEffect(() => {
         const fetchData = async () => {
