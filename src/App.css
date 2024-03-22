@@ -56,6 +56,8 @@ p {
 .logo {
   cursor: pointer;
   color: #EFEFEF;
+  background-color: transparent;
+  border: none;
   margin: 0;
   text-decoration: none;
   font-size: 2rem;

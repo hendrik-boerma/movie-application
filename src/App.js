@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <header>
-        <a href='/' onClick={() => setMovieTitle('')} className='logo'>Thuis.bioscoop</a>
+        <button onClick={() => setMovieTitle('')} className='logo'>Thuis.bioscoop</button>
         <Search movieTitle={movieTitle} handleInputChange={handleInputChange} />
       </header>
       <main>
