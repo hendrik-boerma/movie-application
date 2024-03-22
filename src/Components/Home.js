@@ -3,7 +3,7 @@ import '../App.css';
 
 function Home() {
     const [highlights, setHighlights] = useState([]);
-    const idNumbers = ['tt0114709', 'tt0109830', 'tt7137906'];
+    const idNumbers = ['tt0114709', 'tt0109830'];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,20 +21,31 @@ function Home() {
     }, []);
 
     return (
-        <section className='card-grid'>
-            {highlights.map((highlight, index) => (
-                <div className='card' key={index}>
-                    <img className='card-image' src={highlight.Poster} alt="Movie Poster" />
-                    <div className='card-text-home'>
-                        <h1 className='card-title'>{highlight.Title}</h1>
-                        <p className='card-year'>{highlight.Year}</p>
-                        <p className='card-plot'>{highlight.Plot}</p>
-                        <p className='card-awards'>{highlight.Awards}</p>
-                    </div>
-                </div>
-            ))}
+        <section>
+            <h1>Uitgelicht</h1>
+            <div className='card-grid'>
+                {highlights.map((highlight, index) => (
+                    <HighlightItem key={index} {...highlight} index={index} />
+                ))}
+            </div>
         </section>
     );
 }
+
+const HighlightItem = ({ Poster, Title, Year, Plot, Awards, index }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div className='card' key={index}>
+            <img className='card-image' src={Poster} alt="Movie Poster" />
+            <div style={isOpen ? { height: '100%', paddingBottom: '4rem' } : null} className='card-text-home'>
+                <h1 className='card-title'>{Title}</h1>
+                <p className='card-year'>{Year}</p>
+                <p className='card-plot'>{Plot}</p>
+                <p className='card-awards'>{Awards}</p>
+                <button onClick={() => setIsOpen(!isOpen)} className='readMore'>{isOpen ? 'Lees minder' : 'Lees meer'}</button>
+            </div>
+        </div>
+    );
+};
 
 export default Home;

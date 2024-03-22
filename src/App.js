@@ -14,12 +14,11 @@ function App() {
   return (
     <>
       <header>
-        <h1>Thuis.bioscoop</h1>
+        <a href='/' onClick={() => setMovieTitle('')} className='logo'>Thuis.bioscoop</a>
         <Search movieTitle={movieTitle} handleInputChange={handleInputChange} />
       </header>
       <main>
           <Searchresult movieTitle={movieTitle} />
-        <h1>Uitgelicht</h1>
           <Home />
       </main>
 

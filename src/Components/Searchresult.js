@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logoimage from '../Images/logoimage.png';
 
 const Searchresult = ({ movieTitle }) => {
-    const [movies, setMovies] = useState(null);
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         fetch(`https://www.omdbapi.com/?s=${movieTitle}&apiKey=6c3a2d45`)
@@ -27,30 +27,42 @@ const Searchresult = ({ movieTitle }) => {
     }
 
     if (!movies || movies.length === 0) {
-        return <p id='result-warning'>Geen resultaten gevonden voor de zoekterm.</p>;
+        return  (
+        <section>
+        <h1>Zoekresultaten</h1>
+        <p id='result-warning'>Geen resultaten gevonden voor de zoekterm '{movieTitle}'.</p>
+        </section>
+    );
     }
 
     return (
-
-        <section id='search-result' className='card-grid'>
+        <section>
+        <h1>Zoekresultaten</h1>
+        <div id='search-result' className='card-grid'>
             {movies.map((movie, index) => (
-                <div key={index} className='card'>
-                    <img className='card-image' src={movie.Poster === "N/A" ? logoimage : movie.Poster} alt="Movie Poster" />
-                    <div className='card-text-search'>
-                        <h1 className='card-title'>{movie.Title}</h1>
-                        <p className='card-year'>{movie.Year} | {movie.Rated === "N/A" ? '' : `${movie.Rated} |`} {movie.Genre} | {movie.Type}</p>
-                        <p className='card-plot'>{movie.Plot}</p>
-                        <p className='card-director'>Director: {movie.Director}</p>
-                        <p className='card-actors'>Actors: {movie.Actors}</p>
-                        <p className='card-awards'>Awards: {movie.Awards}</p>
-
-                    </div>
-                </div>
+                <MovieItem key={index} {...movie} index={index} />
             ))}
+        </div>
         </section>
+    );
+}
 
-
-    )
+const MovieItem = ({ Poster, Title, Year, Plot, Awards, Director, Actors, Rated, Genre, Type, index }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div key={index} className='card'>
+            <img className='card-image' src={Poster === "N/A" ? logoimage : Poster} alt="Movie Poster" />
+            <div style={isOpen ? { height: '100%', paddingBottom: '4rem'  } : null} className='card-text-search'>
+                <h1 className='card-title'>{Title}</h1>
+                <p className='card-year'>{Year} | {Rated === "N/A" ? '' : `${Rated} |`} {Genre} | {Type}</p>
+                <p className='card-plot'>{Plot}</p>
+                <p className='card-director'>Director: {Director}</p>
+                <p className='card-actors'>Actors: {Actors}</p>
+                <p className='card-awards'>Awards: {Awards}</p>
+                <button onClick={() => setIsOpen(!isOpen)} className='readMore'>{isOpen ? 'Lees minder' : 'Lees meer'}</button>
+            </div>
+        </div>
+    );
 };
 
 export default Searchresult;
