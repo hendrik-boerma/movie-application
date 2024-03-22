@@ -21,6 +21,15 @@ const Searchresult = ({ movieTitle }) => {
             });
     }, [movieTitle]);
 
+    const toggleOpen = (index) => {
+        const updatedMovies = movies.map((movie, i) => ({
+            ...movie,
+            isOpen: i === index ? !movie.isOpen : false
+        }));
+        setMovies(updatedMovies);
+    };
+
+
     if (movieTitle === '') {
         return;
     }
@@ -39,15 +48,14 @@ const Searchresult = ({ movieTitle }) => {
         <h1>Zoekresultaten</h1>
         <div id='search-result' className='card-grid'>
             {movies.map((movie, index) => (
-                <MovieItem key={index} {...movie} index={index} />
+                <MovieItem key={index} {...movie} index={index} toggleOpen={toggleOpen} />
             ))}
         </div>
         </section>
     );
 }
 
-const MovieItem = ({ Poster, Title, Year, Plot, Awards, Director, Actors, Rated, Genre, Type, index }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const MovieItem = ({ Poster, Title, Year, Plot, Awards, Director, Actors, Rated, Genre, Type, index, isOpen, toggleOpen }) => {
     return (
         <div key={index} className='card' data-testid="card">
             <img className='card-image' src={Poster === "N/A" ? logoimage : Poster} alt="Movie Poster" />
@@ -58,7 +66,7 @@ const MovieItem = ({ Poster, Title, Year, Plot, Awards, Director, Actors, Rated,
                 <p className='card-director'>Director: {Director}</p>
                 <p className='card-actors'>Actors: {Actors}</p>
                 <p className='card-awards'>Awards: {Awards}</p>
-                <button onClick={() => setIsOpen(!isOpen)} className='readMore'>{isOpen ? 'Lees minder' : 'Lees meer'}</button>
+                <button onClick={() => toggleOpen(index)} className='readMore'>{isOpen ? 'Lees minder' : 'Lees meer'}</button>
             </div>
         </div>
     );

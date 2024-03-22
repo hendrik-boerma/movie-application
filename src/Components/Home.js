@@ -19,20 +19,27 @@ function Home() {
         fetchData();
     }, [idNumbers]);
 
+    const toggleOpen = (index) => {
+        const updatedHighlights = highlights.map((highlights, i) => ({
+            ...highlights,
+            isOpen: i === index ? !highlights.isOpen : false
+        }));
+        setHighlights(updatedHighlights);
+    };
+
     return (
         <section>
             <h1>Uitgelicht</h1>
             <div className='card-grid'>
                 {highlights.map((highlight, index) => (
-                    <HighlightItem key={index} {...highlight} index={index} />
+                    <HighlightItem key={index} {...highlight} index={index} toggleOpen={toggleOpen} />
                 ))}
             </div>
         </section>
     );
 }
 
-const HighlightItem = ({ Poster, Title, Year, Plot, Awards, index }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const HighlightItem = ({ Poster, Title, Year, Plot, Awards, index, toggleOpen, isOpen }) => {
     return (
         <div className='card' key={index}>
             <img className='card-image' src={Poster} alt="Movie Poster" />
@@ -41,7 +48,7 @@ const HighlightItem = ({ Poster, Title, Year, Plot, Awards, index }) => {
                 <p className='card-year'>{Year}</p>
                 <p className='card-plot'>{Plot}</p>
                 <p className='card-awards'>{Awards}</p>
-                <button onClick={() => setIsOpen(!isOpen)} className='readMore'>{isOpen ? 'Lees minder' : 'Lees meer'}</button>
+                <button onClick={() => toggleOpen(index)} className='readMore'>{isOpen ? 'Lees minder' : 'Lees meer'}</button>
             </div>
         </div>
     );
