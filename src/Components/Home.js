@@ -43,7 +43,7 @@ const HighlightItem = ({ Poster, Title, Year, Plot, Awards, index, toggleOpen, i
     return (
         <div className='card' key={index}>
             <img className='card-image' src={Poster} alt="Movie Poster" />
-            <div style={isOpen ? { height: '100%', paddingBottom: '4rem' } : null} className='card-text-home'>
+            <div style={isOpen ? { height: '100%'} : null} className='card-text-home'>
                 <h1 className='card-title'>{Title}</h1>
                 <p className='card-year'>{Year}</p>
                 <p className='card-plot'>{Plot}</p>

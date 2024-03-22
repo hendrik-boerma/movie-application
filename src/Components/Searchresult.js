@@ -59,7 +59,7 @@ const MovieItem = ({ Poster, Title, Year, Plot, Awards, Director, Actors, Rated,
     return (
         <div key={index} className='card' data-testid="card">
             <img className='card-image' src={Poster === "N/A" ? logoimage : Poster} alt="Movie Poster" />
-            <div style={isOpen ? { height: '100%', paddingBottom: '4rem'  } : null} className='card-text-search'>
+            <div style={isOpen ? { height: '100%'} : null} className='card-text-search'>
                 <h1 className='card-title'>{Title}</h1>
                 <p className='card-year'>{Year} | {Rated === "N/A" ? '' : `${Rated} |`} {Genre} | {Type}</p>
                 <p className='card-plot'>{Plot}</p>
