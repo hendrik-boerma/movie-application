@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import '../App.css';
 
 function Home() {
     const [highlights, setHighlights] = useState([]);
-    const idNumbers = ['tt0114709', 'tt0109830'];
+    const idNumbers = useMemo(() => ['tt0114709', 'tt0109830'], []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,8 +17,7 @@ function Home() {
             }
         };
         fetchData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [idNumbers]);
 
     return (
         <section>

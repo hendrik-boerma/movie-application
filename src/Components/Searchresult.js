@@ -15,7 +15,6 @@ const Searchresult = ({ movieTitle }) => {
                     return detailedData;
                 })).then(detailedMovies => {
                     setMovies(detailedMovies);
-                    console.log(detailedMovies);
                 }).catch((error) => {
                     console.error('Error fetching detailed data:', error);
                 });
