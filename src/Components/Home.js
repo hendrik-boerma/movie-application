@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import '../App.css';
 
 function Home() {
+    const config = require('../config.js');
+    const apiKey = config.apiKey;
     const [highlights, setHighlights] = useState([]);
     const [idNumbers] = useState(['tt0114709', 'tt0109830']);
 
@@ -9,7 +11,7 @@ function Home() {
         const fetchData = async () => {
             try {
                 const responses = await Promise.all(
-                    idNumbers.map(id => fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apiKey=6c3a2d45`).then(res => res.json()))
+                    idNumbers.map(id => fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apiKey=` + apiKey).then(res => res.json()))
                 );
                 setHighlights(responses);
             } catch (error) {
@@ -17,7 +19,7 @@ function Home() {
             }
         };
         fetchData();
-    }, [idNumbers]);
+    }, [idNumbers, apiKey]);
 
     const toggleOpen = (index) => {
         const updatedHighlights = highlights.map((highlights, i) => ({

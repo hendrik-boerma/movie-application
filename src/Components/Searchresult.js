@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import logoimage from '../Images/logoimage.png';
 
 const Searchresult = ({ movieTitle }) => {
+    const config = require('../config.js');
+    const apiKey = config.apiKey;
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -10,7 +12,7 @@ const Searchresult = ({ movieTitle }) => {
             .then((data) => {
                 const moviesData = data.Search ? data.Search.slice(0, 5) : [];
                 Promise.all(moviesData.map(async movie => {
-                    const response = await fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&plot=full&apiKey=6c3a2d45`);
+                    const response = await fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&plot=full&apiKey=` + apiKey);
                     const detailedData = await response.json();
                     return detailedData;
                 })).then(detailedMovies => {
@@ -19,7 +21,7 @@ const Searchresult = ({ movieTitle }) => {
                     console.error('Error fetching detailed data:', error);
                 });
             });
-    }, [movieTitle]);
+    }, [movieTitle, apiKey]);
 
     const toggleOpen = (index) => {
         const updatedMovies = movies.map((movie, i) => ({
