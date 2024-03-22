@@ -7,7 +7,7 @@ const Searchresult = ({ movieTitle }) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        fetch(`https://www.omdbapi.com/?s=${movieTitle}&apiKey=6c3a2d45`)
+        fetch(`https://www.omdbapi.com/?s=${movieTitle}&apiKey=` + apiKey)
             .then((res) => res.json())
             .then((data) => {
                 const moviesData = data.Search ? data.Search.slice(0, 5) : [];
