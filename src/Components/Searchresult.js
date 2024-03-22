@@ -30,7 +30,7 @@ const Searchresult = ({ movieTitle }) => {
         return  (
         <section>
         <h1>Zoekresultaten</h1>
-        <p id='result-warning'>Geen resultaten gevonden voor de zoekterm '{movieTitle}'.</p>
+        <p id='result-warning'>Geen resultaten gevonden voor de zoekterm '{movieTitle}'</p>
         </section>
     );
     }
