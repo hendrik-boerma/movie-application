@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logoimage from '../Images/logoimage.png';
 
 const Searchresult = ({ movieTitle }) => {
-    const config = require('../config.js');
-    const apiKey = config.apiKey;
+    const apiKey = process.env.REACT_APP_API_KEY;
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {

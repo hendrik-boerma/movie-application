@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import '../App.css';
 
 function Home() {
-    const config = require('../config.js');
-    const apiKey = config.apiKey;
+    const apiKey = process.env.REACT_APP_API_KEY;
     const [highlights, setHighlights] = useState([]);
     const [idNumbers] = useState(['tt0114709', 'tt0109830']);
 

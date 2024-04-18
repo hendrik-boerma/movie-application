@@ -6,7 +6,6 @@ import './App.css';
 
 function App() {
   const [movieTitle, setMovieTitle] = useState('');
-
   const handleInputChange = (event) => {
     setMovieTitle(event.target.value);
   };
