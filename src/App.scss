@@ -1,6 +1,8 @@
+@import 'Variables';
+
 header {
   padding: 2rem;
-  background-color: #1C1C1C;
+  background-color: $primary-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,18 +16,18 @@ section {
 }
 
 h1 {
-  color: #EFEFEF;
+  color: $text-color;
   margin: 0;
 }
 
 p {
-  color: #EFEFEF;
+  color: $text-color;
   margin: 0;
 }
 
 .logo {
   cursor: pointer;
-  color: #EFEFEF;
+  color: $text-color;
   background-color: transparent;
   border: none;
   margin: 0;

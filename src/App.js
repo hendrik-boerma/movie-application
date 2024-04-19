@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Search from './Components/Search';
 import Home from './Components/Home';
 import Searchresult from './Components/Searchresult';
-import './App.css';
+import './App.scss';
 
 function App() {
   const [movieTitle, setMovieTitle] = useState('');

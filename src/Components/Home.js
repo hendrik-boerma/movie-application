@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './MovieCard.css';
+import './MovieCard.scss';
 import MovieCard from './MovieCard';
 import fetchMoviesData from '../FetchAPI'
 

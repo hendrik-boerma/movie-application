@@ -1,9 +1,10 @@
+@import 'Variables';
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #262626;
-  font-family:'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: $secondary-color;
+  font-family: $font-stack;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

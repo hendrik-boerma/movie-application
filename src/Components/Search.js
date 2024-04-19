@@ -1,4 +1,4 @@
-import './Search.css';
+import './Search.scss';
 import searchicon from "../Images/search.png"
 
 function Search({ movieTitle, handleInputChange }) {

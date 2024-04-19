@@ -1,3 +1,5 @@
+@import '../Variables.scss';
+
 .card {
     border-radius: 2rem;
     display: flex;
@@ -11,14 +13,14 @@
     min-height: 16rem;
     max-width: 100%;
     object-fit: cover;
-    background-color: #262626;
+    background-color: $secondary-color;
   }
   
   .card-text-search, .card-text-home {
     transition: height 0.5s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-    background-color: #1C1C1C;
+    background-color: $primary-color;
     padding: 1rem;
     border-radius: 0rem 0rem 2rem 2rem;
     display: grid;
@@ -56,27 +58,27 @@
     grid-area: year;
     display: flex;
     flex-wrap: wrap;
-    color: #CCCCCC;
+    color: $secondary-text-color;
     font-size: 1rem;
     gap: 0.25rem;
   }
   
   .card-plot {
     grid-area: plot;
-    color: #EFEFEF;
+    color: $text-color;
     font-size: 0.75rem;
     line-height: 1.5;
   }
   
   .card-director {
     grid-area: director;
-    color: #CCCCCC;
+    color: $secondary-text-color;
     font-size: 0.75rem;
   }
   
   .card-writers {
     grid-area: writers;
-    color: #CCCCCC;
+    color: $secondary-text-color;
     font-size: 0.75rem;
     display: flex;
     flex-direction: row;
@@ -86,7 +88,7 @@
   
   .card-actors {
     grid-area: actors;
-    color: #CCCCCC;
+    color: $secondary-text-color;
     font-size: 0.75rem;
     display: flex;
     flex-direction: row;
@@ -96,7 +98,7 @@
   
   .card-awards {
     grid-area: awards;
-    color: #CCCCCC;
+    color: $secondary-text-color;
     font-size: 0.75rem;
   }
 
@@ -116,13 +118,13 @@
   .readMore {
     width: 100%;
     text-align: left;
-    color: #efefef;
+    color: $text-color;
     padding: 1rem;
     font-size: 1rem;
     background-color: transparent;
     border: none;
     position: absolute;
-    bottom: 0px;
+    bottom: 0rem;
     z-index: 1;
   }
   
@@ -139,7 +141,7 @@
   }
   
   .readMore:hover {
-    color: #016A6B;
+    color: $brand-color;
     cursor: pointer;
   }
   

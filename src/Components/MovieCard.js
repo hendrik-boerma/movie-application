@@ -1,4 +1,4 @@
-import './MovieCard.css';
+import './MovieCard.scss';
 import logoimage from '../Images/logoimage.png';
 
 const MovieCard = ({ Poster, Title, Year, Plot, Awards, Director, Writer, Actors, Rated, Genre, Type, index, isOpen, showDetail, cards, setCards }) => {

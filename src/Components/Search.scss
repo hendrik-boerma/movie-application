@@ -1,15 +1,17 @@
+@import '../Variables.scss';
+
 .search {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    background-color: #262626;
+    background-color: $secondary-color;
     border-radius: 32rem;
   }
   
   input {
-    background-color: #262626;
-    color: #EFEFEF;
+    background-color: $secondary-color;
+    color: $text-color;
     border-radius: 8rem;
     border: none;
     padding: 1rem 2rem;
