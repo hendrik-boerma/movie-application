@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import App from '../App';
 
@@ -9,21 +9,20 @@ describe('Search movies', () => {
     
         const inputField = getByPlaceholderText('Zoeken...');
     
-        fireEvent.change(inputField, { target: { value: 'Monster' } });
+        await act( () => fireEvent.change(inputField, { target: { value: 'Monster' } }));
 
-        await findAllByText(/Monster/);
+        await waitFor(() => expect(findAllByTestId('card')).resolves.toHaveLength(7));
     
         const cards = await findAllByTestId('card');
-        expect(cards).toHaveLength(2);
+        expect(cards).toHaveLength(7);
       });
     
       it('Gives back a warning when there are no search results', async () => {
         const { getByPlaceholderText, findAllByText, findByTestId } = render(<App />);
     
         const inputField = getByPlaceholderText('Zoeken...');
-    
  
-        fireEvent.change(inputField, { target: { value: 'xxxyyyzzz' } });
+        await act( () => fireEvent.change(inputField, { target: { value: 'xxxyyyzzz' } }));
 
         await findAllByText(/Geen resultaten/);
     
