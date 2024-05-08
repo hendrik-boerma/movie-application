@@ -1,10 +1,16 @@
 import './MovieCard.scss';
 import logoimage from '../Images/logoimage.png';
 
-const MovieCard = ({ Poster, Title, Year, Plot, Awards, Director, Writer, Actors, Rated, Genre, Type, index, isOpen, showDetail, cards, setCards }) => {
-    const actorList = Actors ? Actors.split(',').map(item => item.trim()) : [];
-    const genreList = Genre ? Genre.split(',').map(item => item.trim()) : [];
-    const writerList = Genre ? Writer.split(',').map(item => item.trim()) : [];
+const MovieCard = ({ data, index, showDetail, cards, setCards }) => {
+    const { Poster, Title, Year, Plot, Awards, Director, Writer, Actors, Rated, Genre, Type, isOpen } = data;
+
+    const getListFromArray = (array) => {
+        return array ? array.split(',').map(item => item.trim()) : [];
+    }
+    
+    const actorList = getListFromArray(Actors);
+    const genreList = getListFromArray(Genre);
+    const writerList = getListFromArray(Writer);
 
     const toggleOpen = (index) => {
         const updatedHighlights = cards.map((cards, i) => ({

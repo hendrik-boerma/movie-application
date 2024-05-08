@@ -22,7 +22,14 @@ function Home() {
             <h1>{title}</h1>
             <div className='card-grid'>
                 {highlights.map((highlight, index) => (
-                    <MovieCard key={index} {...highlight} index={index} showDetail={false} cards={highlights} setCards={setHighlights} />
+                    <MovieCard
+                        key={index}
+                        index={index}
+                        data={highlight}
+                        showDetail={false}
+                        cards={highlights}
+                        setCards={setHighlights} 
+                    />
                 ))}
             </div>
         </section>

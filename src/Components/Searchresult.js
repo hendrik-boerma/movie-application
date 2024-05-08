@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
 import fetchMoviesData from '../FetchAPI'
+import { useContext } from 'react'
+import { TitleContext } from '../App';
 
-const Searchresult = ({ movieTitle }) => {
+const Searchresult = () => {
     const [movies, setMovies] = useState([]);
+    const [movieTitle] = useContext(TitleContext)
 
     useEffect(() => {
         fetchMoviesData(movieTitle, [])
@@ -31,7 +34,15 @@ const Searchresult = ({ movieTitle }) => {
             <h1>Zoekresultaten</h1>
             <div id='search-result' className='card-grid'>
                 {movies.map((movie, index) => (
-                    <MovieCard key={index} {...movie} highlight={false} index={index} showDetail={true} cards={movies} setCards={setMovies} />
+                    <MovieCard 
+                        key={index} 
+                        index={index} 
+                        data={movie} 
+                        showDetail={true} 
+                        highlight={false} 
+                        cards={movies} 
+                        setCards={setMovies} 
+                    />
                 ))}
             </div>
         </section>

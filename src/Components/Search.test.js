@@ -5,7 +5,7 @@ import App from '../App';
 
 describe('Search movies', () => {
     it('Renders the top 5 movies when searching', async () => {
-        const { getByPlaceholderText, findAllByText, findAllByTestId } = render(<App />);
+        const { getByPlaceholderText, findAllByTestId } = render(<App />);
     
         const inputField = getByPlaceholderText('Zoeken...');
     

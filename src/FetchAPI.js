@@ -14,7 +14,7 @@ const fetchMoviesData = async (movieTitle, idNumbers) => {
         return movieDetails;
     } else {
         const movieDetails = await Promise.all(
-            idNumbers.map(id => fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apiKey=` + apiKey).then(res => res.json()))
+            idNumbers.map(id => fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apiKey=${apiKey}`).then(res => res.json()))
         );
         return movieDetails;
     }
