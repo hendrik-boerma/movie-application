@@ -1,11 +1,10 @@
 @import 'Variables';
 
 header {
-  padding: 2rem;
+  padding: 2rem 8rem;
   background-color: $primary-color;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 2rem;
 }
 
@@ -37,6 +36,7 @@ p {
 }
 
 main {
+  align-items: left;
   padding: 2rem 8rem;
   display: flex;
   flex-direction: column;
@@ -45,8 +45,14 @@ main {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
+}
+
+@media (max-width: 1800px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 1200px) {
@@ -74,7 +80,7 @@ main {
     grid-template-columns: 1fr;
   }
 
-  header {
+  .header_container {
     flex-direction: column;
   }
 }

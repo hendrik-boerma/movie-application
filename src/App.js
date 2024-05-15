@@ -12,11 +12,11 @@ function App() {
   return (
     <TitleContext.Provider value={[movieTitle, setMovieTitle]}>
       <header>
-        <button onClick={() => setMovieTitle('')} className='logo'>Thuis.bioscoop</button>
-        <Search/>
+          <button onClick={() => setMovieTitle('')} className='logo'>Thuis.bioscoop</button>
+          <Search />
       </header>
       <main>
-        <Searchresult/>
+        <Searchresult />
         <Home />
       </main >
     </TitleContext.Provider>
