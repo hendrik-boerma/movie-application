@@ -24,7 +24,7 @@ const Searchresult = () => {
         return (
             <section>
                 <h1>Zoekresultaten</h1>
-                <p id='result-warning' data-testid="warning">Geen resultaten gevonden voor de zoekterm '{movieTitle}'</p>
+                <p data-testid="warning">Geen resultaten gevonden voor de zoekterm '{movieTitle}'</p>
             </section>
         );
     }
@@ -32,7 +32,7 @@ const Searchresult = () => {
     return (
         <section>
             <h1>Zoekresultaten</h1>
-            <div id='search-result' className='card-grid'>
+            <div className='card-grid'>
                 {movies.map((movie, index) => (
                     <MovieCard 
                         key={index} 
