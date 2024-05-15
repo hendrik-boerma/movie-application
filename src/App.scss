@@ -60,7 +60,7 @@ main {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  main {
+  main, header {
     padding: 2rem 4rem;
   }
 }
@@ -70,7 +70,7 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  main {
+  main, header {
     padding: 2rem 2rem;
   }
 }
@@ -80,7 +80,7 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .header_container {
+  header {
     flex-direction: column;
   }
 }
