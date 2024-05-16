@@ -4,8 +4,8 @@ import { useContext } from 'react'
 import { TitleContext } from '../App';
 
 function Search() {
-
     const [movieTitle, setMovieTitle] = useContext(TitleContext)
+
     const handleInputChange = (event) => {
         setMovieTitle(event.target.value);
       };

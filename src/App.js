@@ -1,7 +1,8 @@
 import React, { useState, createContext } from 'react';
 import Search from './Components/Search';
+import SearchResult from './Components/Searchresult';
 import Home from './Components/Home';
-import Searchresult from './Components/Searchresult';
+import { DataProvider } from './DataProvider'
 import './App.scss';
 
 export const TitleContext = createContext();
@@ -12,12 +13,14 @@ function App() {
   return (
     <TitleContext.Provider value={[movieTitle, setMovieTitle]}>
       <header>
-          <button onClick={() => setMovieTitle('')} className='logo'>Thuis.bioscoop</button>
-          <Search />
+        <button onClick={() => setMovieTitle('')} className='logo'>Thuis.bioscoop</button>
+        <Search />
       </header>
       <main>
-        <Searchresult />
-        <Home />
+        <DataProvider>
+          <SearchResult />
+          <Home />
+        </DataProvider>
       </main >
     </TitleContext.Provider>
   );

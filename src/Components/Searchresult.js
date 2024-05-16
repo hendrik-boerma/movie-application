@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import MovieCard from './MovieCard';
-import fetchMoviesData from '../FetchAPI'
-import { useContext } from 'react'
+import React, { useContext } from 'react';
+import { DataContext } from '../DataProvider';
 import { TitleContext } from '../App';
+import MovieCard from './MovieCard';
 
-const Searchresult = () => {
-    const [movies, setMovies] = useState([]);
-    const [movieTitle] = useContext(TitleContext)
-
-    useEffect(() => {
-        fetchMoviesData(movieTitle, [])
-            .then(data => setMovies(data))
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, [movieTitle]);
-
+function SearchResult() {
+    const [ movies, setMovies ] = useContext(DataContext).searchresults;
+    const [movieTitle] = useContext(TitleContext);
+    
     if (movieTitle === '') {
         return;
     }
@@ -34,14 +25,14 @@ const Searchresult = () => {
             <h1>Zoekresultaten</h1>
             <div className='card-grid'>
                 {movies.map((movie, index) => (
-                    <MovieCard 
-                        key={index} 
-                        index={index} 
-                        data={movie} 
-                        showDetail={true} 
-                        highlight={false} 
-                        cards={movies} 
-                        setCards={setMovies} 
+                    <MovieCard
+                        key={index}
+                        index={index}
+                        data={movie}
+                        showDetail={true}
+                        highlight={false}
+                        cards={movies}
+                        setCards={setMovies}
                     />
                 ))}
             </div>
@@ -49,4 +40,4 @@ const Searchresult = () => {
     );
 }
 
-export default Searchresult;
+export default SearchResult;
